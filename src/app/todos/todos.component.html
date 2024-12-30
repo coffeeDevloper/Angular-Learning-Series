@@ -21,9 +21,7 @@
     <!--    <li>
           <h4>{{ todo.title }}</h4>
         </li>-->
-    <li class="todos__item">
-      <input id="todo-{{todo.id}}" type="checkbox" [value]="todo.completed"/>
-      <label for="todo-{{todo.id}}">{{ todo.title }}</label>
-    </li>
+    <app-todo-item (todoToggled)="updateTodoToggled($event)" [todo]="todo"/>
+
   }
 </ul>

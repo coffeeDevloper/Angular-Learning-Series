@@ -2,13 +2,13 @@ import {Component, inject, OnInit, signal} from '@angular/core';
 import {TodosService} from "../services/todos.service";
 import {Todo} from "../model/todo.type";
 import {catchError} from "rxjs";
-import {NgIf} from "@angular/common";
+import {TodoItemComponent} from "../components/todo-item/todo-item.component";
 
 @Component({
   selector: 'app-todos',
   standalone: true,
   imports: [
-    NgIf
+    TodoItemComponent
   ],
   templateUrl: './todos.component.html',
   styleUrl: './todos.component.scss'
@@ -25,6 +25,22 @@ export class TodosComponent implements OnInit {
       })
     ).subscribe((todos) =>{
       return this.todoItems.set(todos);
-    })
+    });
+
+  }
+
+  updateTodoToggled(todoItems: Todo){
+    this.todoItems.update((todos) =>{
+      return todos.map(todos =>{
+        if (todos.id === todoItems.id){
+          return {
+            ...todos,
+            completed: !todos.completed
+          };
+
+        }
+        return todos;
+      })
+    } )
   }
 }
