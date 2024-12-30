@@ -1,1 +1,10 @@
-<p>todos works!</p>
+<!--
+<div *ngFor="let todo of todoItems()">
+<p>{{todo.title}}</p>
+</div>
+-->
+@for (
+  todo of todoItems();track todo.id
+  ){
+  <p>{{todo.title}}</p>
+}
