@@ -2,11 +2,14 @@ import {Component, inject, OnInit, signal} from '@angular/core';
 import {TodosService} from "../services/todos.service";
 import {Todo} from "../model/todo.type";
 import {catchError} from "rxjs";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-todos',
   standalone: true,
-  imports: [],
+  imports: [
+    NgIf
+  ],
   templateUrl: './todos.component.html',
   styleUrl: './todos.component.scss'
 })
