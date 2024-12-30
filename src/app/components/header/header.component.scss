@@ -6,4 +6,29 @@ header{
   color: white;
   align-items: center;
   justify-content: space-between;
+
+
+  nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    > span:hover{
+      color: gray;
+
+    }
+   > span{
+      cursor: pointer;
+    }
+  }
+  ul{
+    list-style: none;
+  }
+  li{
+    cursor: pointer;
+  }
+  li:hover{
+    color: gray;
+  }
 }
